@@ -1,0 +1,87 @@
+/* 
+ * 屬於全域的設定，作用是 Reset 不想要出現的 html 5 預設樣式
+ */
+
+@layer base {
+  html {
+    scrollbar-gutter: stable;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #000;
+  }
+  html {
+    scrollbar-color: #fff rgb(0 0 0 / 45%);
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      background-color: rgb(0 0 0 / 45%);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgb(0 0 0 / 45%);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #fff;
+      border-radius: 999px;
+    }
+  }
+
+  * {
+    scrollbar-color: #fff rgb(0 0 0 / 45%);
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      background-color: rgb(0 0 0 / 45%);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgb(0 0 0 / 45%);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #fff;
+      border-radius: 999px;
+    }
+  }
+
+  .none-scroll {
+    &::-webkit-scrollbar {
+      display: none;  /* Chrome, Safari, Opera */
+    }
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* 字體渲染設定 */
+  html, body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+  }
+
+  /* 清除 input type="search" 的預設樣式  */
+  input[type="search"] {
+    -webkit-appearance: none;
+  }
+
+  /* 清除 input type="number" 的預設樣式  */
+  input[type="number"] {
+    -webkit-appearance: none;
+  }
+
+  /* 清除 focus 的預設樣式 */
+  *:focus {
+    outline: none;
+  }
+
+  .set {
+    @apply px-5 max-w-[1440px] mx-auto w-full;
+  }
+
+}

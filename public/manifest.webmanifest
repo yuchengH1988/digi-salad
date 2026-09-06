@@ -1,0 +1,10 @@
+{
+  "name": "digiSalad Interview",
+  "short_name": "digiSalad",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#10120F",
+  "theme_color": "#B8D935",
+  "icons": [
+  ]
+}

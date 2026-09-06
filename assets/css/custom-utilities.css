@@ -1,0 +1,27 @@
+/* 
+ * 屬於 Tailwind 原生無法達成的樣式、webkit 效果
+ * class 命名原則盡量與 Tailwind 一致
+ */
+
+@layer utilities {
+  .scrollbar-none {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-drag {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
