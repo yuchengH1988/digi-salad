@@ -11,12 +11,12 @@ import founderPortrait from '~/assets/images/founder-photo-4.jpg'
     <div class="relative mx-auto grid h-full max-w-[1100px] grid-cols-[250px_1fr] items-center gap-[88px] px-6 max-lg:grid-cols-1 max-lg:gap-10 max-lg:py-20">
       <div class="text-center" data-fade="up">
         <img :src="founderPortrait" alt="Tony Ng" class="mx-auto size-[204px] rounded-full object-cover">
-        <h2 class="mt-8 text-[20px] font-bold uppercase tracking-[2px]">Tony Ng</h2>
-        <p class="mt-1 text-[16px] italic tracking-[2px]">Founder &amp; Creative Director</p>
+        <h2 class="text-h-3 mt-8">Tony Ng</h2>
+        <p class="text-body-3 mt-1 italic">Founder &amp; Creative Director</p>
       </div>
       <div data-fade="up">
         <AtomIcon name="left-quote" class="mx-auto mb-4 size-[90px] text-white" />
-        <blockquote class="text-[22px] leading-[48px] tracking-[2px] max-md:text-[18px] max-md:leading-9">
+        <blockquote class="text-quote-1">
           A great digital work isn’t about designing beautiful pages purely. It is about context - how do we deliver the
           <strong class="font-bold text-yellow"> right experience to the right person at the right time.</strong>
           The most important thing is that your work can engage customers at anytime, anywhere and let users experience an entire amazing digital journey.

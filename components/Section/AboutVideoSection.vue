@@ -14,7 +14,7 @@ import aboutMobile from '~/assets/images/about-video-thumbnail-m.webp'
           <span class="absolute left-[43%] top-1/2 -translate-y-1/2 border-y-[20px] border-l-[28px] border-y-transparent border-l-white max-md:border-y-[14px] max-md:border-l-[20px]"></span>
         </span>
       </a>
-      <p class="mt-[30px] text-center text-[16px] leading-7 tracking-[1px] max-md:text-left">
+      <p class="text-body-1 mt-[30px] text-center max-md:text-left">
         Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.
       </p>
       <div class="mt-[30px] flex justify-center">

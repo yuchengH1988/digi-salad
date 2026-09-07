@@ -50,7 +50,7 @@ onBeforeUnmount(() => {
         <AtomIcon name="icon" is-full />
       </a>
       <div class="ml-auto flex items-center gap-5 md:gap-7">
-        <a v-show="!isMenuOpen" href="#showcase" class="hidden h-[41px] items-center rounded-full bg-gradient-to-r from-[#4ee5ea] to-[#26d0a8] px-4 text-[14px] font-bold uppercase tracking-[1.14px] transition-opacity hover:opacity-85 md:flex text-white">
+        <a v-show="!isMenuOpen" href="#showcase" class="text-btn-2 hidden h-[41px] items-center rounded-full bg-gradient-to-r from-[#4ee5ea] to-[#26d0a8] px-4 transition-opacity hover:opacity-85 md:flex text-white">
           Start your project
         </a>
         <button

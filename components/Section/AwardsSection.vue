@@ -7,7 +7,7 @@ import awardLogo from '~/assets/images/awards.webp'
     <div class="grid min-h-[302px] grid-cols-[416px_1fr] items-center gap-[37px] max-lg:grid-cols-1">
       <div>
         <AtomSectionTitle title="Awards" align="left" />
-        <p class="mt-[25px] text-[16px] leading-7 tracking-[1px]">
+        <p class="text-body-1 mt-[25px]">
           Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc.
         </p>
       </div>

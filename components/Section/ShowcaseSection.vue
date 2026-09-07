@@ -33,14 +33,14 @@ const changeSlide = (offset) => {
         </div>
 
         <div class="absolute left-[56.11%] top-[256px] w-[432px] max-lg:relative max-lg:left-auto max-lg:top-auto max-lg:w-auto" data-fade="up">
-          <p class="pl-[6px] text-[16px] font-bold uppercase tracking-[2.22px]">Highlighted showcase</p>
+          <p class="text-mini-1 pl-[6px]">Highlighted showcase</p>
           <div class="relative mt-[20px] h-[41px]">
-            <h2 class="pl-[6px] text-[32px] font-bold uppercase leading-[39px] tracking-[3.64px]">
+            <h2 class="text-h-2 pl-[6px]">
               LP Club Mobile App<span class="text-coral">.</span>
             </h2>
             <span class="absolute bottom-0 left-0 h-[2px] w-[401px] max-w-full bg-accent"></span>
           </div>
-          <p class="mt-[38px] text-[16px] leading-6 tracking-[1px]">
+          <p class="text-body-2 mt-[38px]">
             Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.
           </p>
         </div>

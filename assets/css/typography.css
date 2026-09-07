@@ -1,28 +1,33 @@
 @layer utilities {
 
-  /* Display */
   .text-display-1 {
-    @apply font-display text-mb/display/1 lg:text-dt/display/1;
+    @apply font-display text-mb/display/1 uppercase lg:text-dt/display/1;
   }
 
-  .text-display-2 {
-    @apply font-display text-mb/display/2 lg:text-dt/display/2;
+  .text-h-1 {
+    @apply font-display text-mb/h/1 uppercase lg:text-dt/h/1;
   }
 
-  .text-display-3 {
-    @apply font-display text-mb/display/3 lg:text-dt/display/2;
+  .text-h-2 {
+    @apply font-display text-mb/h/2 uppercase lg:text-dt/h/2;
   }
 
-  /* Head */
-  .text-head-1 {
-    @apply font-default text-mb/head/1 lg:text-dt/head/1;
+  .text-h-3 {
+    @apply font-display text-mb/h/3 uppercase lg:text-dt/h/3;
   }
 
-  .text-head-2 {
-    @apply font-default text-mb/head/2 lg:text-dt/head/2;
+  .text-mini-1 {
+    @apply font-default text-mb/mini/1 uppercase lg:text-dt/mini/1;
   }
 
-  /* Body */
+  .text-mini-2 {
+    @apply font-default text-mb/mini/2 uppercase lg:text-dt/mini/2;
+  }
+
+  .text-mini-3 {
+    @apply font-default text-mb/mini/3 lg:text-dt/mini/3;
+  }
+
   .text-body-1 {
     @apply font-default text-mb/body/1 lg:text-dt/body/1;
   }
@@ -35,12 +40,15 @@
     @apply font-default text-mb/body/3 lg:text-dt/body/3;
   }
 
-  /* Button */
-  .text-button-1 {
-    @apply font-default text-mb/button/1 lg:text-dt/button/1;
+  .text-btn-1 {
+    @apply font-default text-mb/btn/1 uppercase lg:text-dt/btn/1;
   }
 
-  .text-button-2 {
-    @apply font-default text-mb/button/2 lg:text-dt/button/2;
+  .text-btn-2 {
+    @apply font-default text-dt/btn/2 uppercase;
+  }
+
+  .text-quote-1 {
+    @apply font-default text-mb/quote/1 lg:text-dt/quote/1;
   }
 }

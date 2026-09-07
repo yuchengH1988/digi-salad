@@ -42,8 +42,8 @@ const menuItems = [
           <img :src="item.image" alt="" class="menu-background absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105">
           <img :src="item.icon" alt="" class="menu-art absolute object-contain">
           <span class="menu-copy absolute">
-            <span class="block text-[16px] uppercase tracking-[1.8px]">{{ item.eyebrow }}</span>
-            <strong class="relative mt-1 block text-[32px] uppercase leading-none tracking-[3.64px]">{{ item.label }}
+            <span class="text-mini-2 block">{{ item.eyebrow }}</span>
+            <strong class="text-h-2 relative mt-1 block">{{ item.label }}
               <div class="absolute right-0 bottom-1 size-[10px] rounded-full" :class="[item.dot]"></div>
             </strong>
           </span>
@@ -51,8 +51,8 @@ const menuItems = [
 
         <a href="#showcase" class="menu-contact absolute overflow-hidden rounded-[30px] bg-white text-ink max-xl:relative max-xl:inset-auto max-xl:aspect-[4/3]" @click="emit('close')">
           <span class="absolute bottom-[67px] left-[42px] right-5">
-            <span class="block text-[16px] uppercase tracking-[1.8px]">Start your journey with us</span>
-            <strong class="inline-flex relative mt-1 text-[32px] uppercase leading-none tracking-[3.64px] text-accent">Contact
+            <span class="text-mini-2 block">Start your journey with us</span>
+            <strong class="text-h-2 inline-flex relative mt-1 text-accent">Contact
               <div class="absolute -right-4 bottom-1 size-[10px] rounded-full bg-coral"></div>
             </strong>
           </span>
