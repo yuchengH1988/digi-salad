@@ -88,9 +88,14 @@ module.exports = {
         },
         accent: {
           light: '#DDF7FF',
-          DEFAULT: '#00A7C8',
+          DEFAULT: '#26C6D0',
           dark: '#006073'
         },
+        page: '#F2F2F2',
+        ink: '#262626',
+        purple: '#585880',
+        coral: '#EE6C8A',
+        yellow: '#FFBC58',
         success: {
           DEFAULT: '#ABE06D',
           dark: '#61A035'

@@ -60,6 +60,8 @@
 
   /* 字體渲染設定 */
   html, body {
+    min-height: 100%;
+    background-color: #f2f2f2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-smooth: never;
@@ -82,6 +84,15 @@
 
   .set {
     @apply px-5 max-w-[1440px] mx-auto w-full;
+  }
+
+  body {
+    color: #262626;
+    font-family: "proxima-nova", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
 }
