@@ -15,11 +15,11 @@ defineProps({ open: { type: Boolean, default: false } })
 const emit = defineEmits(['close'])
 
 const menuItems = [
-  { label: 'About us', eyebrow: 'Empowering brands', href: '#about', image: menuAbout, icon: cabbage, tone: 'bg-accent/85', position: 'menu-about' },
-  { label: 'Works', eyebrow: 'Case studies', href: '#showcase', image: menuWork, icon: tomato, tone: 'bg-coral/80', position: 'menu-works' },
-  { label: 'Careers', eyebrow: 'Be cool with us', href: '#career', image: menuCareer, icon: cheese, tone: 'bg-yellow/90', position: 'menu-careers' },
-  { label: 'Insights', eyebrow: 'Our strategies', href: '#work', image: menuInsights, icon: cucumber, tone: 'bg-[#20d3a7]/85', position: 'menu-insights' },
-  { label: 'Services', eyebrow: 'Areas of expertise', href: '#services', image: menuService, icon: carrot, tone: 'bg-purple/85', position: 'menu-services' }
+  { label: 'About us', eyebrow: 'Empowering brands', href: '#about', image: menuAbout, icon: cabbage, tone: 'bg-accent', position: 'menu-about', dot: 'bg-coral' },
+  { label: 'Works', eyebrow: 'Case studies', href: '#showcase', image: menuWork, icon: tomato, tone: 'bg-coral', position: 'menu-works', dot: 'bg-accent' },
+  { label: 'Careers', eyebrow: 'Be cool with us', href: '#career', image: menuCareer, icon: cheese, tone: 'bg-yellow', position: 'menu-careers', dot: 'bg-coral' },
+  { label: 'Insights', eyebrow: 'Our strategies', href: '#work', image: menuInsights, icon: cucumber, tone: 'bg-[#26d0a8]', position: 'menu-insights', dot: 'bg-coral' },
+  { label: 'Services', eyebrow: 'Areas of expertise', href: '#services', image: menuService, icon: carrot, tone: 'bg-purple', position: 'menu-services', dot: 'bg-coral' }
 ]
 </script>
 
@@ -38,19 +38,23 @@ const menuItems = [
           :class="item.position"
           @click="emit('close')"
         >
-          <img :src="item.image" alt="" class="absolute inset-0 size-full object-cover opacity-45 transition-transform duration-700 group-hover:scale-105">
-          <span class="absolute inset-0" :class="item.tone"></span>
-          <span class="menu-copy absolute bottom-[47px] left-[106px] right-7 max-md:left-7">
-            <img :src="item.icon" alt="" class="absolute bottom-[-1px] left-[-58px] max-h-[61px] w-[42px] object-contain max-md:hidden">
+          <div class="absolute inset-0" :class="item.tone"></div>
+          <img :src="item.image" alt="" class="menu-background absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <img :src="item.icon" alt="" class="menu-art absolute object-contain">
+          <span class="menu-copy absolute">
             <span class="block text-[16px] uppercase tracking-[1.8px]">{{ item.eyebrow }}</span>
-            <strong class="mt-1 block text-[32px] uppercase leading-none tracking-[3.64px]">{{ item.label }}<span class="ml-1 text-coral">.</span></strong>
+            <strong class="relative mt-1 block text-[32px] uppercase leading-none tracking-[3.64px]">{{ item.label }}
+              <div class="absolute right-0 bottom-1 size-[10px] rounded-full" :class="[item.dot]"></div>
+            </strong>
           </span>
         </a>
 
         <a href="#showcase" class="menu-contact absolute overflow-hidden rounded-[30px] bg-white text-ink max-xl:relative max-xl:inset-auto max-xl:aspect-[4/3]" @click="emit('close')">
           <span class="absolute bottom-[67px] left-[42px] right-5">
             <span class="block text-[16px] uppercase tracking-[1.8px]">Start your journey with us</span>
-            <strong class="mt-1 block text-[32px] uppercase leading-none tracking-[3.64px] text-accent">Contact<span class="ml-1 text-coral">.</span></strong>
+            <strong class="inline-flex relative mt-1 text-[32px] uppercase leading-none tracking-[3.64px] text-accent">Contact
+              <div class="absolute -right-4 bottom-1 size-[10px] rounded-full bg-coral"></div>
+            </strong>
           </span>
         </a>
       </nav>
@@ -65,14 +69,39 @@ const menuItems = [
 .menu-insights { left: 422px; top: 470px; width: 290px; height: 282px; }
 .menu-services { left: 754px; top: 60px; width: 380px; height: 320px; }
 .menu-contact { left: 754px; top: 420px; width: 380px; height: 210px; }
-.menu-about .menu-copy,
-.menu-works .menu-copy { bottom: 59px; }
+
+.menu-about .menu-art { left: 37px; top: 74px; width: 42px; height: 62px; }
+.menu-about .menu-copy { left: 106px; top: 82px; width: 207px; }
+.menu-works .menu-art { left: 28px; top: 198px; width: 61px; height: 61px; }
+.menu-works .menu-copy { left: 106px; top: 194px; width: 150px; }
+.menu-careers .menu-art { left: 31px; top: 240px; width: 92px; height: 47px; }
+.menu-careers .menu-copy { left: 37px; top: 315px; width: 184px; }
+.menu-insights .menu-art { left: 37px; top: 73px; width: 25px; height: 79px; }
+.menu-insights .menu-copy { left: 31px; top: 167px; width: 191px; }
+.menu-services .menu-art { left: 48px; top: 123px; width: 36px; height: 67px; }
+.menu-services .menu-copy { left: 42px; top: 205px; width: 195px; }
 
 @media (max-width: 1279px) {
   .menu-card,
   .menu-contact {
     width: auto;
     height: auto;
+  }
+
+  .menu-card .menu-art {
+    left: 28px;
+    top: auto;
+    bottom: 48px;
+    width: 42px;
+    height: 62px;
+  }
+
+  .menu-card .menu-copy {
+    left: 92px;
+    top: auto;
+    right: 24px;
+    bottom: 48px;
+    width: auto;
   }
 }
 </style>

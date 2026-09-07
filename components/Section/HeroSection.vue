@@ -28,7 +28,7 @@ import salad from '~/assets/images/salad.png'
     </div>
 
     <div class="absolute left-1/2 top-[772px] flex -translate-x-1/2 flex-col items-center max-md:top-[640px]">
-      <img :src="salad" alt="" class="size-[65px] rounded-full">
+      <img :src="salad" alt="" class="size-[65px]">
       <span class="mt-3 whitespace-nowrap text-[16px] font-bold uppercase tracking-[2.22px]">Taste us now!</span>
       <span class="mt-3 h-[130px] w-px bg-ink"></span>
     </div>
