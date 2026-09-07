@@ -19,8 +19,8 @@ module.exports = {
       '4xl': '1920px'
     },
     fontFamily: {
-      display: ['Inter', 'Noto Sans TC', 'sans-serif'],
-      default: ['Inter', 'Noto Sans TC', 'sans-serif']
+      display: ['proxima-nova', 'sans-serif'],
+      default: ['proxima-nova', 'sans-serif']
     },
     fontWeight: {
       thin: 100,

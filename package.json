@@ -14,7 +14,8 @@
   },
   "devDependencies": {
     "@types/node": "^18.14.0",
-    "nuxt": "^3.12.4"
+    "nuxt": "^3.12.4",
+    "vite-plugin-svg-icons": "^2.0.1"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.4.1",

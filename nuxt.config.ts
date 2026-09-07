@@ -1,3 +1,6 @@
+import path from 'node:path'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+
 const appEnv = {
   title: process.env.APP_TITLE || 'digiSalad Interview',
   desc: process.env.APP_DESC || 'digiSalad single-page interview project built with Nuxt, Tailwind CSS, and GSAP.',
@@ -51,14 +54,9 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: `${appEnv.baseURL}favicon.svg` },
         { rel: 'manifest', href: `${appEnv.baseURL}manifest.webmanifest` },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-        { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' },
-        { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap'
-        }
+        { rel: 'preconnect', href: 'https://use.typekit.net' },
+        { rel: 'dns-prefetch', href: 'https://use.typekit.net' },
+        { rel: 'stylesheet', href: 'https://use.typekit.net/wel8ibk.css' }
       ],
       noscript: [{ innerHTML: '此網站需要開啟JavaScript<br>JavaScript is required' }]
     },
@@ -89,7 +87,14 @@ export default defineNuxtConfig({
         protocol: 'ws',
         host: 'localhost'
       }
-    }
+    },
+    plugins: [
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), 'assets/icons')],
+        symbolId: '[dir]/[name]',
+        customDomId: '__svg__icons__dom__'
+      })
+    ]
   },
 
   postcss: require('./postcss.config.js'),
