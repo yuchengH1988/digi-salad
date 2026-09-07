@@ -49,7 +49,7 @@
     }
   }
 
-  .none-scroll {
+  .none-scroll, html {
     &::-webkit-scrollbar {
       display: none;  /* Chrome, Safari, Opera */
     }
