@@ -1,6 +1,21 @@
 <script setup>
 const { $gsap } = useNuxtApp()
 const mainRef = ref(null)
+const isMenuOpen = ref(false)
+
+const closeMenu = () => {
+  isMenuOpen.value = false
+}
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
+
+watch(isMenuOpen, (open) => {
+  if (process.client) {
+    document.documentElement.classList.toggle('overflow-hidden', open)
+  }
+})
 
 onMounted(() => {
   if (mainRef.value) {
@@ -16,11 +31,17 @@ onMounted(() => {
     )
   }
 })
+
+onBeforeUnmount(() => {
+  closeMenu()
+})
 </script>
 
 <template>
   <div ref="mainRef" class="layout opacity-0">
     <div class="fixed inset-0 z-[-2] bg-bgc"></div>
+    <LayoutSiteHeader :is-menu-open="isMenuOpen" @toggle-menu="toggleMenu" />
+    <MenuOverlay :open="isMenuOpen" @close="closeMenu" />
     <slot />
     <div id="subField" class="relative z-[500]">
     </div>
