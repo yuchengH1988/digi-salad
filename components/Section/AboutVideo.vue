@@ -6,7 +6,7 @@ import aboutMobile from '~/assets/images/about-video-thumbnail-m.webp'
 <template>
   <section id="about" class="pb-[70px] pt-[125px] text-ink lg:pb-[286px]">
     <div class="mx-auto max-w-[1007px] px-5">
-      <AtomSectionTitle title="About digiSalad" wave-class="w-[200px] lg:w-[369px]" />
+      <AtomSectionTitle title="About digiSalad" wave-class="w-[340px] lg:w-[369px]" />
       <BaseYouTubeVideo
         video-id="IeIRJ9jZ5Ro"
         title="Watch about digiSalad video"

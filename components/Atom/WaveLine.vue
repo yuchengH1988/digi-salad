@@ -8,7 +8,7 @@ const props = defineProps({
   wavelength: { type: Number, default: 25.613 }
 })
 
-// 25.6
+// 25.6 
 
 const waveRef = ref(null)
 const pathRef = ref(null)

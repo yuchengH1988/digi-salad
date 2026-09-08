@@ -37,7 +37,10 @@ onBeforeUnmount(() => {
 
 <template>
   <div ref="titleRef" :class="align === 'left' ? 'items-start' : 'items-center'" class="flex flex-col">
-    <h2 class="text-h-1 relative" :class="light ? 'text-white' : 'text-ink'">
+    <h2 class="text-h-1 relative"
+      :class="[
+        light ? 'text-white' : 'text-ink',
+        align === 'left' && 'pl-6']">
       {{ title }}
       <span ref="dotRef" class="absolute -right-4 bottom-1 size-[10px] rounded-full bg-coral" />
     </h2>

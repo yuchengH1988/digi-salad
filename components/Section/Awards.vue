@@ -3,10 +3,11 @@ import awardLogo from '~/assets/images/awards.webp'
 </script>
 
 <template>
-  <section class="relative z-3 mx-auto mb-[-80px] mt-[-20px] max-w-[1346px] rounded-[30px] bg-white px-6 py-12 text-ink max-xl:mx-5 lg:mb-[-216px] lg:mt-[-216px] lg:rounded-none lg:rounded-bl-[50px] lg:rounded-tl-[50px] lg:px-[69px] lg:py-[65px]">
-    <div class="grid min-h-[302px] grid-cols-1 items-center gap-[37px] lg:grid-cols-[416px_1fr]">
+  <section class="relative z-3 mx-auto mb-[-80px] mt-[-20px] max-w-[1346px] px-6 py-12 text-ink lg:mb-[-216px] lg:mt-[-216px] lg:px-[69px] lg:py-[65px]">
+    <div class="absolute -z-1 inset-y-0 left-0 right-[min(0px,-50vw+673px)] rounded-[50px] rounded-tr-none bg-white"></div>
+    <div class="z-[2] grid min-h-[302px] grid-cols-1 items-center gap-[37px] lg:grid-cols-[416px_1fr]">
       <div>
-        <AtomSectionTitle title="Awards" align="left" />
+        <AtomSectionTitle title="Awards" align="left" wave-class="w-[190px] lg:w-[210px]" />
         <p class="text-body-1 mt-[25px]">
           Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc.
         </p>
