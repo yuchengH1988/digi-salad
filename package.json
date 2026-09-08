@@ -1,9 +1,6 @@
 {
   "name": "digisalad-interview",
   "private": true,
-  "imports": {
-    "#internal/nuxt/paths": "./node_modules/nuxt/dist/core/runtime/nitro/utils/paths.js"
-  },
   "engines": {
     "node": ">=18.20.1"
   },
