@@ -3,8 +3,8 @@ import awardLogo from '~/assets/images/awards.webp'
 </script>
 
 <template>
-  <section class="relative z-3 mx-auto mb-[-216px] mt-[-216px] max-w-[1346px] rounded-bl-[50px] rounded-tl-[50px] bg-white px-[69px] py-[65px] text-ink max-xl:mx-5 max-md:mb-[-80px] max-md:mt-[-20px] max-md:rounded-[30px] max-md:px-6 max-md:py-12">
-    <div class="grid min-h-[302px] grid-cols-[416px_1fr] items-center gap-[37px] max-lg:grid-cols-1">
+  <section class="relative z-3 mx-auto mb-[-80px] mt-[-20px] max-w-[1346px] rounded-[30px] bg-white px-6 py-12 text-ink max-xl:mx-5 lg:mb-[-216px] lg:mt-[-216px] lg:rounded-none lg:rounded-bl-[50px] lg:rounded-tl-[50px] lg:px-[69px] lg:py-[65px]">
+    <div class="grid min-h-[302px] grid-cols-1 items-center gap-[37px] lg:grid-cols-[416px_1fr]">
       <div>
         <AtomSectionTitle title="Awards" align="left" />
         <p class="text-body-1 mt-[25px]">

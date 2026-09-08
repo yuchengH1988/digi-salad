@@ -45,7 +45,7 @@ const menuColumns = [
     <aside v-if="open" id="site-menu" class="fixed inset-0 z-50 overflow-x-hidden overflow-y-auto bg-accent text-white flex items-center justify-center" aria-label="Site menu">
       <img :src="hero" alt="" class="fixed inset-0 size-full object-cover opacity-25">
       <div class="fixed inset-0 opacity-60 bg-[linear-gradient(180deg,#585880_3.61%,#26C6D0_95.7%)]"></div>
-      <nav class="menu-canvas relative w-full h-full lg:h-auto md:w-[90vw] lg:w-auto mx-auto grid sm:grid-cols-2 gap-4 sm:gap-6 px-5 py-20 grid-cols-1 lg:flex lg:items-start lg:min-w-[80vw] lg:gap-12 lg:py-10" aria-label="Primary">
+      <nav class="menu-canvas relative mx-auto grid h-full w-full grid-cols-1 gap-4 px-5 py-20 sm:grid-cols-2 sm:gap-6 lg:flex lg:h-auto lg:w-auto lg:min-w-[80vw] lg:items-start lg:gap-12 lg:py-10" aria-label="Primary">
         <div
           v-for="(column, columnIndex) in menuColumns"
           :key="columnIndex"

@@ -4,7 +4,7 @@ import iconsMobile from '~/assets/images/icons-m.webp'
 </script>
 
 <template>
-  <section id="work" class="bg-white pb-[80px] pt-[386px] text-ink md:min-h-[1432px]">
+  <section id="work" class="bg-white pb-[80px] pt-[386px] text-ink lg:min-h-[1432px]">
     <div class="mx-auto max-w-[1040px] px-5">
       <AtomSectionTitle title="Our brand experience" />
       <p class="text-body-2 mx-auto mt-[41px] max-w-[1007px] text-center">

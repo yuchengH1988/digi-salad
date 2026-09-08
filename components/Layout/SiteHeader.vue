@@ -36,10 +36,10 @@ onBeforeUnmount(() => {
     class="fixed inset-x-0 top-0 z-75  transition-colors duration-300"
     :class="isScrolledHeader ? 'bg-white/90' : 'bg-transparent'"
   >
-    <div class="flex items-center justify-between px-5 md:px-10 lg:pl-20 lg:pr-15 h-20 lg:h-[100px]">
+    <div class="flex h-20 items-center justify-between px-5 lg:h-[100px] lg:pl-20 lg:pr-15">
       <a
         href="#top"
-        class="w-24 transition-[opacity,color] duration-300 md:w-[120px] h-auto"
+        class="h-auto w-24 transition-[opacity,color] duration-300 lg:w-[120px]"
         :class="[
           isMenuOpen || isPastHero ? 'visible opacity-100' : 'invisible opacity-0',
           isScrolledHeader ? 'text-accent' : 'text-white'
@@ -49,8 +49,8 @@ onBeforeUnmount(() => {
       >
         <AtomIcon name="icon" is-full />
       </a>
-      <div class="ml-auto flex items-center gap-5 md:gap-7">
-        <a v-show="!isMenuOpen" href="#showcase" class="text-btn-2 hidden h-[41px] items-center rounded-full bg-gradient-to-r from-[#4ee5ea] to-[#26d0a8] px-4 transition-opacity hover:opacity-85 md:flex text-white">
+      <div class="ml-auto flex items-center gap-5 lg:gap-7">
+        <a v-show="!isMenuOpen" href="#showcase" class="text-btn-2 hidden h-[41px] items-center rounded-full bg-gradient-to-r from-[#4ee5ea] to-[#26d0a8] px-4 text-white transition-opacity hover:opacity-85 lg:flex">
           Start your project
         </a>
         <button

@@ -5,10 +5,10 @@ import founderPortrait from '~/assets/images/founder-photo-4.jpg'
 </script>
 
 <template>
-  <section id="career" class="relative z-4 mb-[-299px] mt-[-299px] h-[598px] w-[90.28%] overflow-hidden rounded-br-[50px] text-white max-lg:h-auto max-lg:min-h-[650px] max-lg:w-[calc(100%-20px)] max-md:mb-0 max-md:mt-[-70px] max-md:rounded-br-[30px]">
+  <section id="career" class="relative z-4 mb-0 mt-[-70px] h-auto min-h-[650px] w-[calc(100%-20px)] overflow-hidden rounded-br-[30px] text-white lg:mb-[-299px] lg:mt-[-299px] lg:h-[598px] lg:min-h-0 lg:w-[90.28%] lg:rounded-br-[50px]">
     <BasePicture :src="founderBackground" :mobile-src="founderBackgroundMobile" alt="Hong Kong skyline" img-class="absolute inset-0 size-full scale-[1.02] object-cover blur-[4px]" />
     <div class="absolute inset-0 bg-purple/80"></div>
-    <div class="relative mx-auto grid h-full max-w-[1100px] grid-cols-[250px_1fr] items-center gap-[88px] px-6 max-lg:grid-cols-1 max-lg:gap-10 max-lg:py-20">
+    <div class="relative mx-auto grid h-full max-w-[1100px] grid-cols-1 items-center gap-10 px-6 py-20 lg:grid-cols-[250px_1fr] lg:gap-[88px] lg:py-0">
       <div class="text-center" data-fade="up">
         <img :src="founderPortrait" alt="Tony Ng" class="mx-auto size-[204px] rounded-full object-cover">
         <h2 class="text-h-3 mt-8">Tony Ng</h2>

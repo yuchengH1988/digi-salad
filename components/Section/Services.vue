@@ -24,7 +24,7 @@ const services = [
 </script>
 
 <template>
-  <section id="services" class="rounded-tr-[50px] bg-accent pb-[433px] pt-[316px] text-white max-md:rounded-tr-[30px] max-md:pb-32 max-md:pt-[170px]">
+  <section id="services" class="rounded-tr-[30px] bg-accent pb-32 pt-[170px] text-white lg:rounded-tr-[50px] lg:pb-[433px] lg:pt-[316px]">
     <div class="mx-auto max-w-[1134px] px-5">
       <AtomSectionTitle title="Our ingradients" light />
       <p class="text-body-1 mx-auto mt-[43px] max-w-[1007px] text-center">
@@ -34,7 +34,7 @@ const services = [
         <AtomCtaButton label="Our services" href="#ingredients" tone="purple" />
       </div>
 
-      <div id="ingredients" class="mt-[85px] grid grid-cols-3 gap-x-[50px] gap-y-[60px] max-lg:gap-x-5 max-md:grid-cols-2 max-sm:grid-cols-1">
+      <div id="ingredients" class="mt-[85px] grid grid-cols-1 gap-x-5 gap-y-[60px] sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-[50px]">
         <article v-for="service in services" :key="service.title" class="flex min-h-[409px] flex-col items-center text-center" data-fade="up">
           <div class="grid size-[108px] place-items-center rounded-full bg-white">
             <img :src="service.icon" alt="" class="max-h-[77px] max-w-[82px] object-contain">
