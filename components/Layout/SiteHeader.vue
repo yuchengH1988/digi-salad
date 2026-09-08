@@ -36,7 +36,7 @@ onBeforeUnmount(() => {
     class="fixed inset-x-0 top-0 z-75  transition-colors duration-300"
     :class="isScrolledHeader ? 'bg-white/90' : 'bg-transparent'"
   >
-    <div class="flex items-center justify-between pl-20 pr-15 h-[100px]">
+    <div class="flex items-center justify-between pl-20 pr-15 h-20 lg:h-[100px]">
       <a
         href="#top"
         class="w-[116px] transition-[opacity,color] duration-300 md:w-[120px] h-[54px]"

@@ -45,7 +45,7 @@ const menuColumns = [
     <aside v-if="open" id="site-menu" class="fixed inset-0 z-50 overflow-x-hidden overflow-y-auto bg-accent text-white flex items-center justify-center" aria-label="Site menu">
       <img :src="hero" alt="" class="fixed inset-0 size-full object-cover opacity-25">
       <div class="fixed inset-0 opacity-60 bg-[linear-gradient(180deg,#585880_3.61%,#26C6D0_95.7%)]"></div>
-      <nav class="menu-canvas relative mx-auto grid sm:grid-cols-2 gap-5 px-5 pb-12 grid-cols-1 lg:flex lg:items-start lg:min-w-[80vw] lg:gap-12 lg:py-10" aria-label="Primary">
+      <nav class="menu-canvas relative w-full h-full lg:h-auto md:w-[90vw] lg:w-auto mx-auto grid sm:grid-cols-2 gap-4 sm:gap-6 px-5 py-20 grid-cols-1 lg:flex lg:items-start lg:min-w-[80vw] lg:gap-12 lg:py-10" aria-label="Primary">
         <div
           v-for="(column, columnIndex) in menuColumns"
           :key="columnIndex"
@@ -58,21 +58,23 @@ const menuColumns = [
             v-for="item in column"
             :key="item.label"
             :href="item.href"
-            class="menu-card group relative flex flex-col overflow-hidden rounded-[30px] p-7"
+            class="menu-card group relative flex sm:flex-col overflow-hidden rounded-[30px] p-7"
             :class="[
               item.cardClass,
-              item.isContact ? 'text-ink justify-center' : 'text-white justify-end '
+              item.isContact ? 'text-ink sm:justify-center' : 'text-white sm:justify-end'
             ]"
             @click="emit('close')"
           >
             <div class="absolute inset-0" :class="item.tone"></div>
             <img v-if="item.image" :src="item.image" alt="" class="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105">
-            <div class="relative z-1 flex items-end gap-6  lg:items-start"
+            <div class="relative z-1 flex sm:flex-col gap-6  items-start"
               :class="[
-                columnIndex === 0 ? 'lg:gap-5' : 'lg:flex-col lg:gap-0'
+                columnIndex === 0 ? 'lg:gap-5 lg:flex-row' : 'lg:flex-col lg:gap-0'
               ]">
               <img v-if="item.icon" :src="item.icon" alt="" class="shrink-0 object-contain"
-              :class="[item.iconClass, columnIndex === 0 ? 'lg:mb-0' : 'lg:mb-3']">
+              :class="[
+                'w-[92px] sm:w-auto',
+                item.iconClass, columnIndex === 0 ? 'lg:mb-0' : 'lg:mb-3']">
               <span class="menu-copy block">
                 <span class="text-mini-2 block">{{ item.eyebrow }}</span>
                 <strong class="text-h-2 relative mt-1 inline-flex" :class="item.isContact ? 'text-accent' : ''">{{ item.label }}
