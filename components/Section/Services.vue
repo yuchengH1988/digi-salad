@@ -48,7 +48,10 @@ const services = [
         </article>
       </div>
       <div class="mt-[79px] text-center">
-        <a href="#ingredients" class="text-caption border-b-[6px] border-yellow px-2">View more digiSalad’s ingradients</a>
+        <a href="#ingredients" class="text-caption relative inline-block">
+          <div class="absolute h-2.5 w-full bg-yellow bottom-[3px] z-[0]"></div>
+          <span class="relative z-[1]">View more digiSalad’s ingradients</span>
+        </a>
       </div>
     </div>
   </section>
