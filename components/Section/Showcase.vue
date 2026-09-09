@@ -6,51 +6,55 @@ const prefersReducedMotion = useReducedMotion()
 const currentIndex = ref(0)
 const totalSlides = computed(() => showcaseSlides.length)
 const currentSlide = computed(() => showcaseSlides[currentIndex.value])
-
-const changeSlide = (offset) => {
-  currentIndex.value = (currentIndex.value + offset + totalSlides.value) % totalSlides.value
-}
+const slideRef = ref(null)
+const isTransitioning = ref(false)
 
 let slideTween
 
-const beforeSlideEnter = (element) => {
-  slideTween?.kill()
-  $gsap.set(element, prefersReducedMotion.value
-    ? { autoAlpha: 1, x: 0 }
-    : { autoAlpha: 0, x: 18 })
-}
+const changeSlide = (offset) => {
+  if (isTransitioning.value || totalSlides.value <= 1) return
 
-const slideEnter = (element, done) => {
   if (prefersReducedMotion.value) {
-    done()
+    currentIndex.value = (currentIndex.value + offset + totalSlides.value) % totalSlides.value
     return
   }
 
-  slideTween = $gsap.to(element, {
-    autoAlpha: 1,
-    x: 0,
-    duration: 0.22,
-    ease: 'power2.out',
-    onComplete: done
-  })
-}
-
-const slideLeave = (element, done) => {
-  slideTween?.kill()
-
-  if (prefersReducedMotion.value) {
-    done()
-    return
-  }
+  const element = slideRef.value
+  const direction = offset > 0 ? 1 : -1
+  isTransitioning.value = true
 
   slideTween = $gsap.to(element, {
     autoAlpha: 0,
-    x: -18,
-    duration: 0.22,
+    x: -18 * direction,
+    duration: 0.16,
     ease: 'power2.in',
-    onComplete: done
+    onComplete: async () => {
+      currentIndex.value = (currentIndex.value + offset + totalSlides.value) % totalSlides.value
+      await nextTick()
+
+      $gsap.set(element, { x: 18 * direction })
+      slideTween = $gsap.to(element, {
+        autoAlpha: 1,
+        x: 0,
+        duration: 0.2,
+        ease: 'power2.out',
+        onComplete: () => {
+          isTransitioning.value = false
+        }
+      })
+    }
   })
 }
+
+onMounted(() => {
+  const imageSources = new Set(showcaseSlides.map(slide => slide.image))
+  imageSources.delete(currentSlide.value.image)
+
+  imageSources.forEach((source) => {
+    const image = new Image()
+    image.src = source
+  })
+})
 
 onBeforeUnmount(() => {
   slideTween?.kill()
@@ -76,24 +80,18 @@ onBeforeUnmount(() => {
     <ShowcaseControls
       :current="currentIndex + 1"
       :total="totalSlides"
+      :disabled="isTransitioning"
       @previous="changeSlide(-1)"
       @next="changeSlide(1)"
     />
 
-    <Transition
-      :css="false"
-      mode="out-in"
-      @before-enter="beforeSlideEnter"
-      @enter="slideEnter"
-      @leave="slideLeave"
-    >
+    <div ref="slideRef" class="relative">
       <ShowcaseSlide
-        :key="currentSlide.id"
         :slide="currentSlide"
         role="group"
         aria-roledescription="slide"
         :aria-label="`${currentIndex + 1} of ${totalSlides}`"
       />
-    </Transition>
+    </div>
   </section>
 </template>

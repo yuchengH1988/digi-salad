@@ -7,7 +7,7 @@ defineProps({
 <template>
   <div class="mx-auto flex h-auto max-w-[1440px] flex-col px-5 py-24 lg:flex-row lg:px-20 lg:pb-[248px] lg:pt-[200px] xl:pl-[min(14vw,160px)] xl:pr-36">
     <div class="relative mx-auto max-w-[480px] pr-20 lg:w-2/5 lg:max-w-none lg:pr-0 xl:w-1/2">
-      <img :src="slide.image" :alt="slide.imageAlt" width="2400" height="2400" class="aspect-square w-full rounded-[30px] object-cover">
+      <img :src="slide.image" :alt="slide.imageAlt" width="2400" height="2400" decoding="async" class="aspect-square w-full rounded-[30px] object-cover">
       <AtomCtaButton
         class="absolute -bottom-16 right-[-20px] !h-[86px] !w-auto lg:-bottom-20 lg:right-[calc(50%-150px)] lg:!h-[140px] lg:!w-[300px] xl:-right-20 xl:bottom-[-100px]"
         label="View project"

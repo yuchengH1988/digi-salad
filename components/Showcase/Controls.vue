@@ -1,7 +1,8 @@
 <script setup>
 defineProps({
   current: { type: Number, required: true },
-  total: { type: Number, required: true }
+  total: { type: Number, required: true },
+  disabled: { type: Boolean, default: false }
 })
 
 defineEmits(['previous', 'next'])
@@ -15,11 +16,11 @@ defineEmits(['previous', 'next'])
       :total="total"
     />
 
-    <button type="button" aria-label="Previous project" class="carousel-button carousel-button--prev pointer-events-auto" @click="$emit('previous')">
-      <span class="absolute left-0 top-[2px] size-[53px] rounded-full bg-accent"></span>
+    <button type="button" :disabled="disabled" aria-label="Previous project" class="carousel-button carousel-button--prev pointer-events-auto disabled:cursor-not-allowed disabled:opacity-60" @click="$emit('previous')">
+      <span class="absolute left-1 top-[2px] size-[53px] rounded-full bg-accent"></span>
       <AtomIcon name="carousel-prev" is-full class="relative h-6 w-[15.5px] rotate-180 text-white" />
     </button>
-    <button type="button" aria-label="Next project" class="carousel-button carousel-button--next pointer-events-auto" @click="$emit('next')">
+    <button type="button" :disabled="disabled" aria-label="Next project" class="carousel-button carousel-button--next pointer-events-auto disabled:cursor-not-allowed disabled:opacity-60" @click="$emit('next')">
       <span class="absolute left-0 top-[2px] size-[53px] rounded-full bg-accent"></span>
       <AtomIcon name="carousel-next" is-full class="relative h-6 w-[15.5px] text-white" />
     </button>

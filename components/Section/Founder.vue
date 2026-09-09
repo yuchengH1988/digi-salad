@@ -5,7 +5,7 @@ import founderPortrait from '~/assets/images/founder-photo.webp'
 </script>
 
 <template>
-  <section id="career" class="relative z-4 mb-0 mt-[-70px] h-auto min-h-[650px] w-[calc(100%-20px)] overflow-hidden rounded-tl-none text-white lg:mb-[-299px] lg:mt-[-299px] lg:h-[598px] lg:min-h-0 lg:w-[90.28%] rounded-[50px]">
+  <section id="career" class="relative z-4 mb-0 mt-[-70px] h-auto min-h-[650px] w-full overflow-hidden rounded-tl-none text-white lg:mb-[-299px] lg:mt-[-299px] lg:h-[598px] lg:min-h-0 lg:w-[90.28%] rounded-[50px]">
     <BasePicture  :src="founderBackground" :mobile-src="founderBackgroundMobile" alt="Hong Kong skyline" width="2000" height="802" sizes="100vw" img-class="absolute inset-0 size-full scale-[1.02] object-cover blur-[4px]" />
     <div class="absolute inset-0 bg-purple/80"></div>
     <div class="relative mx-auto grid px-5 h-full max-w-[1100px] grid-cols-1 items-center gap-10 py-20 lg:grid-cols-[260px_1fr] lg:gap-[88px] lg:py-0">
