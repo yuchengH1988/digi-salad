@@ -77,9 +77,10 @@
     -webkit-appearance: none;
   }
 
-  /* 清除 focus 的預設樣式 */
-  *:focus {
-    outline: none;
+  /* 保留鍵盤操作時可辨識的焦點樣式 */
+  :focus-visible {
+    outline: 2px solid #26c6d0;
+    outline-offset: 3px;
   }
 
   .set {
@@ -93,6 +94,21 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
   }
 
 }

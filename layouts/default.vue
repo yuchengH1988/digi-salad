@@ -19,6 +19,11 @@ watch(isMenuOpen, (open) => {
 
 onMounted(() => {
   if (mainRef.value) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      $gsap.set(mainRef.value, { opacity: 1 })
+      return
+    }
+
     $gsap.fromTo(
       mainRef.value,
       {
@@ -33,7 +38,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  closeMenu()
+  document.documentElement.classList.remove('overflow-hidden')
 })
 </script>
 

@@ -25,11 +25,12 @@ const services = [
 
 <template>
   <section id="services" class="rounded-tr-[30px] bg-accent pb-32 pt-[170px] text-white lg:rounded-tr-[50px] lg:pb-[433px] lg:pt-[316px]">
-    <div class="mx-auto max-w-[1134px] px-5">
+    <BaseContainer class="max-w-[1134px]">
       <AtomSectionTitle
-        title="Our ingradients" light
-        :wave-class="'w-[320px] lg:w-[380px]'"
-        />
+        title="Our ingredients"
+        light
+        wave-class="w-[320px] lg:w-[380px]"
+      />
       <p class="text-body-1 mx-auto mt-[43px] max-w-[1007px] text-center">
         Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.
       </p>
@@ -50,9 +51,9 @@ const services = [
       <div class="mt-[79px] text-center">
         <a href="#ingredients" class="text-caption relative inline-block">
           <div class="absolute h-2.5 w-full bg-yellow bottom-[3px] z-[0]"></div>
-          <span class="relative z-[1]">View more digiSalad’s ingradients</span>
+          <span class="relative z-[1]">View more digiSalad’s ingredients</span>
         </a>
       </div>
-    </div>
+    </BaseContainer>
   </section>
 </template>

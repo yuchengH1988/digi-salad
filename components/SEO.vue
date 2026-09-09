@@ -17,18 +17,11 @@ const props = defineProps({
 
 const title = computed(() => props.title || config.public.APP_TITLE)
 const description = computed(() => props.desc || config.public.APP_DESC)
-const url = computed(() => props.url ? `${config.public.APP_URL}/${props.url}` : config.public.APP_URL)
+const siteUrl = computed(() => String(config.public.APP_URL).replace(/\/$/, ''))
+const url = computed(() => props.url
+  ? `${siteUrl.value}/${props.url.replace(/^\//, '')}`
+  : siteUrl.value)
 
-useServerSeoMeta({
-  title,
-  description,
-  ogTitle: title,
-  ogSiteName: title,
-  ogUrl: url,
-  ogDescription: description,
-  twitterTitle: title,
-  twitterDescription: description
-})
 useSeoMeta({
   title,
   description,
@@ -39,15 +32,10 @@ useSeoMeta({
   twitterTitle: title,
   twitterDescription: description
 })
-</script>
 
-<template>
-  <Head>
-    <Title>{{ title }}</Title>
-    <Meta
-      hid="description"
-      name="description"
-      :content="description"
-    />
-  </Head>
-</template>
+useHead(() => ({
+  link: [
+    { rel: 'canonical', href: url.value }
+  ]
+}))
+</script>

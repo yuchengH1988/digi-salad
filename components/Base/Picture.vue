@@ -18,7 +18,20 @@ defineProps({
   },
   loading: {
     type: String,
-    default: 'lazy'
+    default: 'lazy',
+    validator: value => ['eager', 'lazy'].includes(value)
+  },
+  width: {
+    type: [Number, String],
+    default: undefined
+  },
+  height: {
+    type: [Number, String],
+    default: undefined
+  },
+  sizes: {
+    type: String,
+    default: ''
   }
 })
 </script>
@@ -30,6 +43,9 @@ defineProps({
       :src="src"
       :alt="alt"
       :loading="loading"
+      :width="width"
+      :height="height"
+      :sizes="sizes || undefined"
       decoding="async"
       :class="imgClass"
     >

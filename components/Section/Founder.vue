@@ -6,11 +6,11 @@ import founderPortrait from '~/assets/images/founder-photo.webp'
 
 <template>
   <section id="career" class="relative z-4 mb-0 mt-[-70px] h-auto min-h-[650px] w-[calc(100%-20px)] overflow-hidden rounded-tl-none text-white lg:mb-[-299px] lg:mt-[-299px] lg:h-[598px] lg:min-h-0 lg:w-[90.28%] rounded-[50px]">
-    <BasePicture :src="founderBackground" :mobile-src="founderBackgroundMobile" alt="Hong Kong skyline" img-class="absolute inset-0 size-full scale-[1.02] object-cover blur-[4px]" />
+    <BasePicture :src="founderBackground" :mobile-src="founderBackgroundMobile" alt="Hong Kong skyline" width="2000" height="802" sizes="100vw" img-class="absolute inset-0 size-full scale-[1.02] object-cover blur-[4px]" />
     <div class="absolute inset-0 bg-purple/80"></div>
     <div class="relative mx-auto grid h-full max-w-[1100px] grid-cols-1 items-center gap-10 px-6 py-20 lg:grid-cols-[250px_1fr] lg:gap-[88px] lg:py-0">
       <div class="text-center" data-fade="up">
-        <img :src="founderPortrait" alt="Tony Ng" class="mx-auto size-[204px] object-cover">
+        <img :src="founderPortrait" alt="Tony Ng" width="612" height="612" class="mx-auto size-[204px] object-cover">
         <h2 class="text-h-4 mt-8">Tony Ng</h2>
         <p class="text-body-3 mt-1 italic">Founder &amp; Creative Director</p>
       </div>

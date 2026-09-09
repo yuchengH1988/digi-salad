@@ -1,24 +1,7 @@
 <script setup>
-const { $gsap, $ScrollTrigger } = useNuxtApp()
-
 const pageRef = ref(null)
-let pageGsapContext
 
-onMounted(() => {
-  nextTick(() => {
-    pageGsapContext = $gsap.context(() => {
-      $gsap.effects.aosFadeIn({ once: true })
-    }, pageRef)
-
-    setTimeout(() => {
-      $ScrollTrigger.refresh()
-    }, 500)
-  })
-})
-
-onBeforeUnmount(() => {
-  pageGsapContext?.revert()
-})
+useScrollReveal(pageRef, { once: true })
 </script>
 
 <template>

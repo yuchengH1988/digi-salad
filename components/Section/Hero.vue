@@ -7,7 +7,7 @@ import salad from '~/assets/images/salad.png'
 <template>
   <section id="top" class="relative h-[var(--windowVh,100vh)] text-white">
     <div class="absolute inset-0 overflow-hidden rounded-b-[30px] lg:rounded-b-[50px]">
-      <BasePicture :src="heroDesktop" :mobile-src="heroMobile" alt="Hong Kong city light trails at night" loading="eager" img-class="absolute inset-0 size-full object-cover" />
+      <BasePicture :src="heroDesktop" :mobile-src="heroMobile" alt="Hong Kong city light trails at night" loading="eager" width="1920" height="1080" sizes="100vw" img-class="absolute inset-0 size-full object-cover" />
       <div class="absolute inset-0 bg-[rgba(12,38,34,0.28)]"></div>
     </div>
     <div class="relative h-[var(--windowVh,100vh)]">
@@ -19,7 +19,7 @@ import salad from '~/assets/images/salad.png'
           We create<br>
           amazing<br>
           digital <span class="block sm:inline-block">experiences</span>
-          <div class="absolute -right-4 bottom-4 lg:bottom-5 size-[10px] bg-coral rounded-full"></div>
+          <span class="absolute -right-4 bottom-4 size-[10px] rounded-full bg-coral lg:bottom-5"></span>
         </h1>
         <div class="mt-[-18px] lg:mt-[-24px] h-1 w-[250px] sm:w-[410px] lg:w-[571px] max-w-full bg-accent"></div>
       </div>
@@ -30,7 +30,7 @@ import salad from '~/assets/images/salad.png'
     </div>
 
     <div class="absolute left-1/2 flex -translate-x-1/2 flex-col items-center bottom-[-86px]">
-      <img :src="salad" alt="" class="size-[65px]">
+      <img :src="salad" alt="" width="130" height="130" class="size-[65px]">
       <span class="text-mini-1 mt-3 whitespace-nowrap">Taste us now!</span>
       <span class="mt-3 h-[44px] w-px bg-white"></span>
       <span class="mt-0 h-[86px] w-px bg-ink"></span>

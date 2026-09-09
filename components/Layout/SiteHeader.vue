@@ -54,19 +54,17 @@ onBeforeUnmount(() => {
           Start your project
         </a>
         <button
+          v-show="!isMenuOpen"
           type="button"
           class="grid h-[30px] w-[30px] place-items-center transition-colors hover:text-accent"
           :class="isScrolledHeader ? 'text-purple' : 'text-white'"
           :aria-expanded="isMenuOpen"
+          aria-haspopup="dialog"
           aria-controls="site-menu"
           :aria-label="isMenuOpen ? 'Close menu' : 'Open menu'"
           @click="emit('toggle-menu')"
         >
-          <span v-if="isMenuOpen" class="relative block size-[22px]">
-            <span class="absolute left-0 top-1/2 h-[2px] w-[22px] rotate-45 bg-current"></span>
-            <span class="absolute left-0 top-1/2 h-[2px] w-[22px] -rotate-45 bg-current"></span>
-          </span>
-          <AtomIcon v-else name="menu" class="h-[22px] w-[30px]" />
+          <AtomIcon name="menu" class="h-[22px] w-[30px]" />
         </button>
       </div>
     </div>

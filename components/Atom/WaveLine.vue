@@ -8,8 +8,6 @@ const props = defineProps({
   wavelength: { type: Number, default: 25.613 }
 })
 
-// 25.6 
-
 const waveRef = ref(null)
 const pathRef = ref(null)
 const width = ref(220)
@@ -55,7 +53,7 @@ onMounted(() => {
 
   if (waveRef.value) resizeObserver.observe(waveRef.value)
 
-  if (!props.animated) {
+  if (!props.animated || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     $gsap.set(pathRef.value, { strokeDashoffset: 0 })
     return
   }

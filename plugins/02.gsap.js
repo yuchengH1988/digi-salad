@@ -4,7 +4,7 @@ import { gsap } from 'gsap'
 const registerEffects = () => {
   gsap.registerEffect({
     name: 'aosFadeIn',
-    effect: (_, config = {}) => {
+    effect: (targets, config = {}) => {
       const {
         duration = 0.6,
         delay = 0,
@@ -18,26 +18,29 @@ const registerEffects = () => {
         right: { from: { x: 24 }, to: { x: 0 } }
       }
 
-      Object.entries(directions).forEach(([dir, { from, to }]) => {
-        gsap.utils.toArray(`[data-fade="${dir}"]`).forEach((target, index) => {
-          gsap.fromTo(target, {
-            autoAlpha: 0,
-            ...from
-          }, {
-            autoAlpha: 1,
-            ...to,
-            duration,
-            delay,
-            ease: 'power2.out',
-            scrollTrigger: {
-              id: `aosFadeIn:${dir}:${index}`,
-              trigger: target,
-              start: 'top 90%',
-              once,
-              markers,
-              toggleActions: once ? 'play none none none' : 'play none none reverse'
-            }
-          })
+      gsap.utils.toArray(targets).forEach((target, index) => {
+        const direction = directions[target.dataset.fade]
+        if (!direction) return
+
+        const { from, to } = direction
+
+        gsap.fromTo(target, {
+          autoAlpha: 0,
+          ...from
+        }, {
+          autoAlpha: 1,
+          ...to,
+          duration,
+          delay,
+          ease: 'power2.out',
+          scrollTrigger: {
+            id: `aosFadeIn:${target.dataset.fade}:${index}`,
+            trigger: target,
+            start: 'top 90%',
+            once,
+            markers,
+            toggleActions: once ? 'play none none none' : 'play none none reverse'
+          }
         })
       })
     }

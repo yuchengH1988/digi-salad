@@ -20,6 +20,7 @@ const svgName = computed(() => {
     :width="isFull ? '100%' : 24"
     :height="isFull ? '100%' : 24"
     aria-hidden="true"
+    focusable="false"
   >
     <use :href="svgName" fill="currentColor" />
   </svg>
