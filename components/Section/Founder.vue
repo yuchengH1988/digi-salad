@@ -11,7 +11,7 @@ import founderPortrait from '~/assets/images/founder-photo-4.jpg'
     <div class="relative mx-auto grid h-full max-w-[1100px] grid-cols-1 items-center gap-10 px-6 py-20 lg:grid-cols-[250px_1fr] lg:gap-[88px] lg:py-0">
       <div class="text-center" data-fade="up">
         <img :src="founderPortrait" alt="Tony Ng" class="mx-auto size-[204px] rounded-full object-cover">
-        <h2 class="text-h-3 mt-8">Tony Ng</h2>
+        <h2 class="text-h-4 mt-8">Tony Ng</h2>
         <p class="text-body-3 mt-1 italic">Founder &amp; Creative Director</p>
       </div>
       <div data-fade="up">

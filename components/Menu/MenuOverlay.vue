@@ -77,7 +77,7 @@ const menuColumns = [
                 item.iconClass, columnIndex === 0 ? 'lg:mb-0' : 'lg:mb-3']">
               <span class="menu-copy block">
                 <span class="text-mini-2 block">{{ item.eyebrow }}</span>
-                <strong class="text-h-2 relative mt-1 inline-flex" :class="item.isContact ? 'text-accent' : ''">{{ item.label }}
+                <strong class="text-h-3 relative mt-1 inline-flex" :class="item.isContact ? 'text-accent' : ''">{{ item.label }}
                   <div class="absolute -right-4 bottom-2 size-[10px] rounded-full" :class="[item.dot]"></div>
                 </strong>
               </span>

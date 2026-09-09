@@ -7,7 +7,7 @@ import awardLogo from '~/assets/images/awards.webp'
     <div class="absolute -z-1 inset-y-0 left-0 right-[min(0px,-50vw+673px)] rounded-[50px] rounded-tr-none bg-white"></div>
     <div class="z-[2] grid min-h-[302px] grid-cols-1 items-center gap-[37px] lg:grid-cols-[416px_1fr]">
       <div>
-        <AtomSectionTitle title="Awards" align="left" wave-class="w-[190px] lg:w-[210px]" />
+        <AtomSectionTitle title="Awards" align="left" wave-class="w-[180px] lg:w-[200px]" />
         <p class="text-body-1 mt-[25px]">
           Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc.
         </p>

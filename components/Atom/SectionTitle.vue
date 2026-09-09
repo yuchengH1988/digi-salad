@@ -37,13 +37,18 @@ onBeforeUnmount(() => {
 
 <template>
   <div ref="titleRef" :class="align === 'left' ? 'items-start' : 'items-center'" class="flex flex-col">
-    <h2 class="text-h-1 relative"
+    <h2 class="-ml-4 text-h-2 relative"
       :class="[
         light ? 'text-white' : 'text-ink',
-        align === 'left' && 'pl-6']">
+        align === 'left' && 'pl-9']">
       {{ title }}
-      <span ref="dotRef" class="absolute -right-4 bottom-1 size-[10px] rounded-full bg-coral" />
+      <span ref="dotRef" class="absolute -right-4 bottom-0.5 size-[10px] rounded-full bg-coral" />
     </h2>
-    <AtomWaveLine class="mt-2 h-[13px] text-accent" :class="waveClass" />
+    <AtomWaveLine
+      class="mt-2 h-[13px] text-accent"
+      :class="[
+        waveClass,
+        light ? 'text-purple' : 'text-accent',
+      ]" />
   </div>
 </template>

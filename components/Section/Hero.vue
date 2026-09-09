@@ -15,15 +15,15 @@ import salad from '~/assets/images/salad.png'
         <AtomIcon name="icon" is-full class="text-white" />
       </div>
       <div class="absolute left-15 md:left-24 top-[34.06%] lg:left-[15.69%] lg:top-[32.23%]" data-fade="up">
-        <h1 class="text-display-1 relative">
+        <h1 class="text-h-1 relative">
           We create<br>
           amazing<br>
           digital <span class="block sm:inline-block">experiences</span>
-          <div class="absolute -right-4 bottom-4 size-[10px] bg-coral rounded-full"></div>
+          <div class="absolute -right-4 bottom-4 lg:bottom-5 size-[10px] bg-coral rounded-full"></div>
         </h1>
         <div class="mt-[-18px] lg:mt-[-24px] h-1 w-[250px] sm:w-[410px] lg:w-[571px] max-w-full bg-accent"></div>
       </div>
-      <div class="absolute left-[3.6%] top-[35.5%] h-[386px] w-6 flex-col items-center flex">
+      <div class="absolute left-4 lg:left-[3.6%] top-[35.5%] h-[386px] w-6 flex-col items-center flex">
         <span class="text-mini-1 origin-center -rotate-90 whitespace-nowrap">Digital agency</span>
         <span class="mt-[109px] h-[113px] w-[2px] bg-white"></span>
       </div>

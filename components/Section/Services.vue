@@ -26,7 +26,10 @@ const services = [
 <template>
   <section id="services" class="rounded-tr-[30px] bg-accent pb-32 pt-[170px] text-white lg:rounded-tr-[50px] lg:pb-[433px] lg:pt-[316px]">
     <div class="mx-auto max-w-[1134px] px-5">
-      <AtomSectionTitle title="Our ingradients" light />
+      <AtomSectionTitle
+        title="Our ingradients" light
+        :wave-class="'w-[320px] lg:w-[380px]'"
+        />
       <p class="text-body-1 mx-auto mt-[43px] max-w-[1007px] text-center">
         Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.
       </p>
@@ -39,13 +42,13 @@ const services = [
           <div class="grid size-[108px] place-items-center rounded-full bg-white">
             <img :src="service.icon" alt="" class="max-h-[77px] max-w-[82px] object-contain">
           </div>
-          <h3 class="text-h-3 mt-5 min-h-[39px] max-w-[280px]">{{ service.title }}</h3>
+          <h3 class="text-h-4 mt-5 min-h-[39px] max-w-[280px]">{{ service.title }}</h3>
           <p class="text-body-1 mt-4">{{ description }}</p>
           <AtomCtaButton class="mt-auto" :label="service.action || 'View more'" href="#showcase" tone="outline" pill />
         </article>
       </div>
       <div class="mt-[79px] text-center">
-        <a href="#ingredients" class="text-h-3 border-b-[6px] border-yellow px-2">View more digiSalad’s ingradients</a>
+        <a href="#ingredients" class="text-caption border-b-[6px] border-yellow px-2">View more digiSalad’s ingradients</a>
       </div>
     </div>
   </section>

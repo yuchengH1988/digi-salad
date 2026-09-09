@@ -35,7 +35,7 @@ const changeSlide = (offset) => {
         <div class="absolute left-[56.11%] top-[256px] w-[432px] max-lg:relative max-lg:left-auto max-lg:top-auto max-lg:w-auto" data-fade="up">
           <p class="text-mini-1 pl-[6px]">Highlighted showcase</p>
           <div class="relative mt-[20px] h-[41px]">
-            <h2 class="text-h-2 pl-[6px]">
+            <h2 class="text-h-3 pl-[6px]">
               LP Club Mobile App<span class="text-coral">.</span>
             </h2>
             <span class="absolute bottom-0 left-0 h-[2px] w-[401px] max-w-full bg-accent"></span>

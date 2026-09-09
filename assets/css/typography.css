@@ -1,19 +1,23 @@
 @layer utilities {
 
-  .text-display-1 {
+  .text-h-1 {
     @apply font-display text-mb/display/1 uppercase lg:text-dt/display/1;
   }
 
-  .text-h-1 {
+  .text-h-2 {
     @apply font-display text-mb/h/1 uppercase lg:text-dt/h/1;
   }
 
-  .text-h-2 {
+  .text-h-3 {
     @apply font-display text-mb/h/2 uppercase lg:text-dt/h/2;
   }
 
-  .text-h-3 {
+  .text-h-4 {
     @apply font-display text-mb/h/3 uppercase lg:text-dt/h/3;
+  }
+
+  .text-caption {
+    @apply font-display text-[18px] font-bold uppercase leading-normal tracking-[2px];
   }
 
   .text-mini-1 {
