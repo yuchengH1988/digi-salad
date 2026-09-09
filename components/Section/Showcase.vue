@@ -1,6 +1,8 @@
 <script setup>
 import { showcaseSlides } from '~/data/showcase'
 
+const { $gsap } = useNuxtApp()
+const prefersReducedMotion = useReducedMotion()
 const currentIndex = ref(0)
 const totalSlides = computed(() => showcaseSlides.length)
 const currentSlide = computed(() => showcaseSlides[currentIndex.value])
@@ -8,6 +10,51 @@ const currentSlide = computed(() => showcaseSlides[currentIndex.value])
 const changeSlide = (offset) => {
   currentIndex.value = (currentIndex.value + offset + totalSlides.value) % totalSlides.value
 }
+
+let slideTween
+
+const beforeSlideEnter = (element) => {
+  slideTween?.kill()
+  $gsap.set(element, prefersReducedMotion.value
+    ? { autoAlpha: 1, x: 0 }
+    : { autoAlpha: 0, x: 18 })
+}
+
+const slideEnter = (element, done) => {
+  if (prefersReducedMotion.value) {
+    done()
+    return
+  }
+
+  slideTween = $gsap.to(element, {
+    autoAlpha: 1,
+    x: 0,
+    duration: 0.22,
+    ease: 'power2.out',
+    onComplete: done
+  })
+}
+
+const slideLeave = (element, done) => {
+  slideTween?.kill()
+
+  if (prefersReducedMotion.value) {
+    done()
+    return
+  }
+
+  slideTween = $gsap.to(element, {
+    autoAlpha: 0,
+    x: -18,
+    duration: 0.22,
+    ease: 'power2.in',
+    onComplete: done
+  })
+}
+
+onBeforeUnmount(() => {
+  slideTween?.kill()
+})
 </script>
 
 <template>
@@ -33,7 +80,13 @@ const changeSlide = (offset) => {
       @next="changeSlide(1)"
     />
 
-    <Transition name="showcase-slide" mode="out-in">
+    <Transition
+      :css="false"
+      mode="out-in"
+      @before-enter="beforeSlideEnter"
+      @enter="slideEnter"
+      @leave="slideLeave"
+    >
       <ShowcaseSlide
         :key="currentSlide.id"
         :slide="currentSlide"
@@ -44,20 +97,3 @@ const changeSlide = (offset) => {
     </Transition>
   </section>
 </template>
-
-<style scoped>
-.showcase-slide-enter-active,
-.showcase-slide-leave-active {
-  transition: opacity 220ms ease, transform 220ms ease;
-}
-
-.showcase-slide-enter-from {
-  opacity: 0;
-  transform: translateX(18px);
-}
-
-.showcase-slide-leave-to {
-  opacity: 0;
-  transform: translateX(-18px);
-}
-</style>

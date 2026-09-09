@@ -11,30 +11,23 @@ const props = defineProps({
 })
 
 const titleRef = ref(null)
+const titleTextRef = ref(null)
 const dotRef = ref(null)
 const waveRef = ref(null)
-const characters = computed(() => Array.from(
-  props.title,
-  character => character === ' ' ? '\u00A0' : character
-))
-const characterElements = []
+const prefersReducedMotion = useReducedMotion()
 
 let titleGsapContext
-
-const setCharacterRef = (element, index) => {
-  if (element) characterElements[index] = element
-}
 
 onMounted(() => {
   const { $gsap } = useNuxtApp()
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  if (prefersReducedMotion.value) return
 
   const wavePath = waveRef.value?.getPathElement()
   if (!wavePath) return
 
   titleGsapContext = $gsap.context(() => {
-    $gsap.set(characterElements, { autoAlpha: 0, y:10 })
+    $gsap.set(titleTextRef.value, { autoAlpha: 0 })
     $gsap.set(wavePath, { strokeDashoffset: 100 })
 
     const timeline = $gsap.timeline({
@@ -51,9 +44,8 @@ onMounted(() => {
         duration: 1.2,
         ease: 'power2.out'
       }, 0)
-      .to(characterElements, {
+      .to(titleTextRef.value, {
         autoAlpha: 1,
-        y:0,
         duration: 0.8,
         ease: 'power2.out'
       }, 0.3)
@@ -81,13 +73,7 @@ onBeforeUnmount(() => {
       ]"
       :aria-label="title"
     >
-      <span
-        v-for="(character, index) in characters"
-        :key="`${character}-${index}`"
-        :ref="element => setCharacterRef(element, index)"
-        aria-hidden="true"
-        class="inline-block"
-      >{{ character }}</span>
+      <span ref="titleTextRef">{{ title }}</span>
       <span ref="dotRef" class="absolute -right-4 bottom-0.5 size-[10px] rounded-full bg-coral" />
     </h2>
     <AtomWaveLine

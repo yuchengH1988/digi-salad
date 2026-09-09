@@ -1,5 +1,6 @@
 export const useScrollReveal = (rootRef, options = {}) => {
   const { $gsap, $ScrollTrigger } = useNuxtApp()
+  const prefersReducedMotion = useReducedMotion()
   let gsapContext
   let refreshFrame
 
@@ -11,8 +12,9 @@ export const useScrollReveal = (rootRef, options = {}) => {
 
     const targets = root.querySelectorAll('[data-fade]')
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      $gsap.set(targets, { autoAlpha: 1, x: 0, y: 0 })
+    if (prefersReducedMotion.value) {
+      const visibleTargets = root.querySelectorAll('[data-fade], [data-fade-item]')
+      $gsap.set(visibleTargets, { autoAlpha: 1, x: 0, y: 0 })
       return
     }
 

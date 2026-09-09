@@ -9,47 +9,70 @@ const registerEffects = () => {
         duration = 0.6,
         delay = 0,
         markers = false,
-        once = false
+        once = false,
+        start = 'top 90%',
+        verticalDistance = 32,
+        horizontalDistance = 24
       } = config
 
-      const directions = {
-        up: { from: { y: 32 }, to: { y: 0 } },
-        left: { from: { x: -24 }, to: { x: 0 } },
-        right: { from: { x: 24 }, to: { x: 0 } }
+      const getNumber = (value, fallback) => {
+        const parsedValue = Number.parseFloat(value)
+        return Number.isFinite(parsedValue) ? parsedValue : fallback
       }
 
+      const animations = []
+
       gsap.utils.toArray(targets).forEach((target, index) => {
-        const direction = directions[target.dataset.fade]
+        const distance = getNumber(
+          target.dataset.fadeDistance,
+          target.dataset.fade === 'up' ? verticalDistance : horizontalDistance
+        )
+        const directions = {
+          up: { from: { y: distance }, to: { y: 0 } },
+          left: { from: { x: -distance }, to: { x: 0 } },
+          right: { from: { x: distance }, to: { x: 0 } }
+        }
+        const directionName = target.dataset.fade
+        const direction = directions[directionName]
         if (!direction) return
 
         const { from, to } = direction
         const fadeItems = target.querySelectorAll('[data-fade-item]')
         const animationTargets = fadeItems.length ? fadeItems : target
-        const staggerValue = Number.parseFloat(target.dataset.fadeStagger)
-        const stagger = fadeItems.length && Number.isFinite(staggerValue)
-          ? staggerValue
+        const stagger = fadeItems.length
+          ? getNumber(target.dataset.fadeStagger, 0)
           : 0
+        const targetDuration = getNumber(target.dataset.fadeDuration, duration)
+        const targetDelay = getNumber(target.dataset.fadeDelay, delay)
+        const targetOnce = target.dataset.fadeOnce == null
+          ? once
+          : target.dataset.fadeOnce !== 'false'
+        const triggerId = target.dataset.fadeId || target.id || index
 
-        gsap.fromTo(animationTargets, {
+        const animation = gsap.fromTo(animationTargets, {
           autoAlpha: 0,
           ...from
         }, {
           autoAlpha: 1,
           ...to,
-          duration,
-          delay,
+          duration: targetDuration,
+          delay: targetDelay,
           ease: 'power2.out',
           stagger,
           scrollTrigger: {
-            id: `aosFadeIn:${target.dataset.fade}:${index}`,
+            id: `aosFadeIn:${triggerId}:${directionName}`,
             trigger: target,
-            start: 'top 90%',
-            once,
+            start: target.dataset.fadeStart || start,
+            once: targetOnce,
             markers,
-            toggleActions: once ? 'play none none none' : 'play none none reverse'
+            toggleActions: targetOnce ? 'play none none none' : 'play none none reverse'
           }
         })
+
+        animations.push(animation)
       })
+
+      return animations
     }
   })
 }

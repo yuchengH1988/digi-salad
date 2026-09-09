@@ -15,11 +15,14 @@ const props = defineProps({ open: { type: Boolean, default: false } })
 const emit = defineEmits(['close'])
 const { $gsap } = useNuxtApp()
 const menuRef = ref(null)
+const prefersReducedMotion = useReducedMotion()
 let previouslyFocusedElement
+let menuTimeline
 
 const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
 const beforeEnter = (element) => {
+  menuTimeline?.kill()
   const cards = element.querySelectorAll('.menu-card')
 
   $gsap.set(element, { autoAlpha: 0 })
@@ -29,13 +32,13 @@ const beforeEnter = (element) => {
 const enter = (element, done) => {
   const cards = element.querySelectorAll('.menu-card')
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (prefersReducedMotion.value) {
     $gsap.set([element, ...cards], { autoAlpha: 1, y: 0 })
     done()
     return
   }
 
-  $gsap.timeline({ onComplete: done })
+  menuTimeline = $gsap.timeline({ onComplete: done })
     .to(element, {
       autoAlpha: 1,
       duration: 0.18,
@@ -51,13 +54,22 @@ const enter = (element, done) => {
 }
 
 const leave = (element, done) => {
-  $gsap.killTweensOf([element, ...element.querySelectorAll('.menu-card')])
-  $gsap.to(element, {
+  menuTimeline?.kill()
+
+  if (prefersReducedMotion.value) {
+    done()
+    return
+  }
+
+  menuTimeline = $gsap.timeline({ onComplete: done }).to(element, {
     autoAlpha: 0,
     duration: 0.16,
-    ease: 'power1.in',
-    onComplete: done
+    ease: 'power1.in'
   })
+}
+
+const cancelMenuTransition = () => {
+  menuTimeline?.kill()
 }
 
 const handleKeydown = (event) => {
@@ -96,6 +108,7 @@ watch(() => props.open, async (isOpen) => {
 })
 
 onBeforeUnmount(() => {
+  menuTimeline?.kill()
   previouslyFocusedElement?.focus()
 })
 
@@ -126,7 +139,14 @@ const menuColumns = [
 </script>
 
 <template>
-  <Transition :css="false" @before-enter="beforeEnter" @enter="enter" @leave="leave">
+  <Transition
+    :css="false"
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @enter-cancelled="cancelMenuTransition"
+    @leave="leave"
+    @leave-cancelled="cancelMenuTransition"
+  >
     <aside
       v-if="open"
       id="site-menu"
@@ -134,14 +154,14 @@ const menuColumns = [
       role="dialog"
       aria-modal="true"
       aria-label="Site menu"
-      class="fixed inset-0 z-100 flex items-center justify-center overflow-x-hidden overflow-y-auto bg-accent text-white"
+      class="fixed inset-0 z-100 flex items-start justify-center overflow-x-hidden overflow-y-auto bg-accent text-white lg:items-center"
       @keydown="handleKeydown"
     >
       <img :src="hero" alt="" class="pointer-events-none fixed inset-0 size-full object-cover opacity-25">
       <div class="pointer-events-none fixed inset-0 bg-[linear-gradient(180deg,#585880_3.61%,#26C6D0_95.7%)] opacity-60"></div>
       <button
         type="button"
-        class="fixed right-5 top-[25px] z-10 grid size-[30px] place-items-center text-white transition-colors hover:text-accent lg:right-15 lg:top-[35px]"
+        class="pointer-events-auto fixed right-4 top-4 z-[110] grid size-11 touch-manipulation place-items-center text-white transition-colors hover:text-accent lg:right-12 lg:top-7"
         aria-label="Close menu"
         @click="emit('close')"
       >
@@ -152,13 +172,13 @@ const menuColumns = [
       </button>
       <a
         href="#top"
-        class="fixed left-5 top-5 z-10 w-24 text-white lg:left-20 lg:top-6 lg:w-[120px]"
+        class="fixed left-5 top-5 z-[105] h-[42px] w-24 text-white lg:left-20 lg:top-6 lg:h-[53px] lg:w-[120px]"
         aria-label="digiSalad home"
         @click="emit('close')"
       >
         <AtomIcon name="icon" is-full />
       </a>
-      <nav class="menu-canvas relative mx-auto grid h-full w-full grid-cols-1 gap-4 px-5 py-20 sm:grid-cols-2 sm:gap-6 lg:flex lg:h-auto lg:w-auto lg:min-w-[80vw] lg:items-start lg:gap-12 lg:py-10" aria-label="Primary">
+      <nav class="menu-canvas relative mx-auto grid min-h-full w-full content-start grid-cols-1 gap-4 px-5 py-24 sm:grid-cols-2 sm:gap-6 lg:flex lg:min-h-0 lg:w-auto lg:min-w-[80vw] lg:items-start lg:gap-12 lg:py-10" aria-label="Primary">
         <div
           v-for="(column, columnIndex) in menuColumns"
           :key="columnIndex"
@@ -171,7 +191,7 @@ const menuColumns = [
             v-for="item in column"
             :key="item.label"
             :href="item.href"
-            class="menu-card group relative flex sm:flex-col overflow-hidden rounded-[30px] p-7"
+            class="menu-card group relative flex overflow-hidden rounded-[30px] p-7 sm:flex-col lg:min-h-0"
             :class="[
               item.cardClass,
               item.isContact ? 'text-ink sm:justify-center' : 'text-white sm:justify-end'
@@ -186,7 +206,6 @@ const menuColumns = [
               ]">
               <img v-if="item.icon" :src="item.icon" alt="" class="shrink-0 object-contain"
               :class="[
-                'w-[92px] sm:w-auto',
                 item.iconClass, columnIndex === 0 ? 'lg:mb-0' : 'lg:mb-3']">
               <span class="menu-copy block">
                 <span class="text-mini-2 block">{{ item.eyebrow }}</span>

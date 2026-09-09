@@ -11,6 +11,7 @@ const props = defineProps({
 const waveRef = ref(null)
 const pathRef = ref(null)
 const width = ref(220)
+const prefersReducedMotion = useReducedMotion()
 
 let resizeObserver
 let waveGsapContext
@@ -57,7 +58,7 @@ onMounted(() => {
 
   if (waveRef.value) resizeObserver.observe(waveRef.value)
 
-  if (!props.animated || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (!props.animated || prefersReducedMotion.value) {
     $gsap.set(pathRef.value, { strokeDashoffset: 0 })
     return
   }

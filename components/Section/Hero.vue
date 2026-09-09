@@ -5,6 +5,7 @@ import salad from '~/assets/images/salad.png'
 
 const { $gsap } = useNuxtApp()
 const isPageEntered = inject('isPageEntered', ref(true))
+const prefersReducedMotion = useReducedMotion()
 
 const heroRef = ref(null)
 const animatedLogoRef = ref(null)
@@ -25,7 +26,11 @@ const playEntrance = () => {
 }
 
 const rotateSalad = () => {
-  if (!saladRef.value || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  if (
+    !saladRef.value
+    || prefersReducedMotion.value
+    || $gsap.isTweening(saladRef.value)
+  ) return
 
   $gsap.to(saladRef.value, {
     rotation: '+=360',
@@ -38,7 +43,7 @@ const rotateSalad = () => {
 onMounted(() => {
   const header = document.querySelector('[data-site-header]')
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (prefersReducedMotion.value) {
     $gsap.set(header, { autoAlpha: 1, y: 0 })
     return
   }

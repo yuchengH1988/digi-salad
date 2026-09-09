@@ -3,6 +3,8 @@ const { $gsap } = useNuxtApp()
 const mainRef = ref(null)
 const isMenuOpen = ref(false)
 const isPageEntered = ref(false)
+const prefersReducedMotion = useReducedMotion()
+let entranceTween
 
 provide('isPageEntered', isPageEntered)
 
@@ -22,13 +24,13 @@ watch(isMenuOpen, (open) => {
 
 onMounted(() => {
   if (mainRef.value) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (prefersReducedMotion.value) {
       $gsap.set(mainRef.value, { opacity: 1 })
       isPageEntered.value = true
       return
     }
 
-    $gsap.fromTo(
+    entranceTween = $gsap.fromTo(
       mainRef.value,
       {
         opacity: 0
@@ -47,6 +49,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
+  entranceTween?.kill()
   document.documentElement.classList.remove('overflow-hidden')
 })
 </script>
