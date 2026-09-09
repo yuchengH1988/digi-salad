@@ -23,8 +23,14 @@ const registerEffects = () => {
         if (!direction) return
 
         const { from, to } = direction
+        const fadeItems = target.querySelectorAll('[data-fade-item]')
+        const animationTargets = fadeItems.length ? fadeItems : target
+        const staggerValue = Number.parseFloat(target.dataset.fadeStagger)
+        const stagger = fadeItems.length && Number.isFinite(staggerValue)
+          ? staggerValue
+          : 0
 
-        gsap.fromTo(target, {
+        gsap.fromTo(animationTargets, {
           autoAlpha: 0,
           ...from
         }, {
@@ -33,6 +39,7 @@ const registerEffects = () => {
           duration,
           delay,
           ease: 'power2.out',
+          stagger,
           scrollTrigger: {
             id: `aosFadeIn:${target.dataset.fade}:${index}`,
             trigger: target,

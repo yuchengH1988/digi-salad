@@ -12,8 +12,8 @@ import awardLogo from '~/assets/images/awards.webp'
           Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc.
         </p>
       </div>
-      <div class="grid grid-cols-2 gap-x-9 gap-y-[19px] max-sm:grid-cols-1">
-        <img v-for="index in 4" :key="index" :src="awardLogo" alt="Asia Smart App Awards" width="4096" height="1561" class="h-[108px] w-full object-contain">
+      <div class="grid grid-cols-2 gap-x-9 gap-y-[19px] max-sm:grid-cols-1" data-fade="up" data-fade-stagger="0.1">
+        <img v-for="index in 4" :key="index" data-fade-item :src="awardLogo" alt="Asia Smart App Awards" width="4096" height="1561" class="h-[108px] w-full object-contain">
       </div>
     </div>
   </section>

@@ -24,6 +24,17 @@ const playEntrance = () => {
   entranceTimeline.play(0)
 }
 
+const rotateSalad = () => {
+  if (!saladRef.value || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+  $gsap.to(saladRef.value, {
+    rotation: '+=360',
+    duration: 0.65,
+    ease: 'power2.inOut',
+    overwrite: 'auto'
+  })
+}
+
 onMounted(() => {
   const header = document.querySelector('[data-site-header]')
 
@@ -131,7 +142,16 @@ onBeforeUnmount(() => {
     </div>
 
     <div ref="tasteRef" class="absolute bottom-[-86px] left-1/2 flex -translate-x-1/2 flex-col items-center">
-      <img ref="saladRef" :src="salad" alt="" width="130" height="130" class="size-[65px]">
+      <button
+        ref="saladRef"
+        type="button"
+        class="size-[65px] rounded-full"
+        aria-label="Rotate Taste us now icon"
+        @mouseenter="rotateSalad"
+        @click="rotateSalad"
+      >
+        <img :src="salad" alt="" width="130" height="130" class="size-full">
+      </button>
       <span class="text-mini-1 mt-3 whitespace-nowrap">Taste us now!</span>
       <span class="mt-3 h-[44px] w-px bg-white"></span>
       <span class="mt-0 h-[86px] w-px bg-ink"></span>

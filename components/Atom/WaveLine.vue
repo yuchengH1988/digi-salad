@@ -44,6 +44,10 @@ const wavePath = computed(() => {
   return path
 })
 
+const getPathElement = () => pathRef.value
+
+defineExpose({ getPathElement })
+
 onMounted(() => {
   const { $gsap } = useNuxtApp()
 
