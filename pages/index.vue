@@ -1,7 +1,7 @@
 <script setup>
 const pageRef = ref(null)
 
-useScrollReveal(pageRef, { once: true })
+useScrollReveal(pageRef, { once: false })
 </script>
 
 <template>

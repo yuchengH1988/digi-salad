@@ -31,7 +31,7 @@ const services = [
         light
         wave-class="w-[320px] lg:w-[380px]"
       />
-      <p class="text-body-1 mx-auto mt-[43px] max-w-[1007px] text-center">
+      <p data-fade="up" class="text-body-1 mx-auto mt-[43px] max-w-[1007px] text-center">
         Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.
       </p>
       <div class="mt-[30px] flex justify-center">
