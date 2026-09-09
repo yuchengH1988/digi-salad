@@ -33,6 +33,7 @@ onBeforeUnmount(() => {
 
 <template>
   <header
+    data-site-header
     class="fixed inset-x-0 top-0 z-75  transition-colors duration-300"
     :class="isScrolledHeader ? 'bg-white/90' : 'bg-transparent'"
   >
@@ -50,7 +51,7 @@ onBeforeUnmount(() => {
         <AtomIcon name="icon" is-full />
       </a>
       <div class="ml-auto flex items-center gap-5 lg:gap-7">
-        <a v-show="!isMenuOpen" href="#showcase" class="text-btn-2 hidden h-[41px] items-center rounded-full bg-gradient-to-r from-[#4ee5ea] to-[#26d0a8] px-4 text-white transition-opacity hover:opacity-85 lg:flex">
+        <a v-show="!isMenuOpen" href="#showcase" class="text-btn-2 hidden h-[41px] items-center rounded-full bg-gradient-to-r from-[#4ee5ea] to-[#26d0a8] px-4 text-white transition-opacity hover:opacity-85 md:flex">
           Start your project
         </a>
         <button

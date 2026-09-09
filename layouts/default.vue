@@ -2,6 +2,9 @@
 const { $gsap } = useNuxtApp()
 const mainRef = ref(null)
 const isMenuOpen = ref(false)
+const isPageEntered = ref(false)
+
+provide('isPageEntered', isPageEntered)
 
 const closeMenu = () => {
   isMenuOpen.value = false
@@ -21,6 +24,7 @@ onMounted(() => {
   if (mainRef.value) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       $gsap.set(mainRef.value, { opacity: 1 })
+      isPageEntered.value = true
       return
     }
 
@@ -31,9 +35,14 @@ onMounted(() => {
       },
       {
         opacity: 1,
-        duration: 0.5
+        duration: 0.5,
+        onComplete: () => {
+          isPageEntered.value = true
+        }
       }
     )
+  } else {
+    isPageEntered.value = true
   }
 })
 
