@@ -67,9 +67,37 @@ yarn preview
 
 # 啟動正式伺服器
 yarn start
+
+# 建置並部署至 GitHub Pages
+yarn deploy:git
 ```
 
 > 專案的部署與 import path 可能受到 `APP_BASE_URL` 影響。執行正式建置前，請先確認 `.env` 與部署路徑設定。
+
+## GitHub Pages 部署
+
+專案 remote 為 `yuchengH1988/digi-salad`，部署網址使用 `/digi-salad/` 子路徑。部署指令已在執行 build 時自動設定正確的 `APP_BASE_URL`：
+
+```bash
+yarn deploy:git
+```
+
+此指令會依序：
+
+1. 使用 `APP_BASE_URL=/digi-salad/` 建立正式版本。
+2. 讀取 `dist`（連結至 `.output/public`）的靜態檔案。
+3. 將內容推送至 remote 的 `gh-pages` branch。
+
+第一次部署後，請到 GitHub repository 的 **Settings → Pages**，將來源設定為：
+
+- Branch：`gh-pages`
+- Folder：`/ (root)`
+
+完成後網站預計位於：
+
+```text
+https://yuchengh1988.github.io/digi-salad/
+```
 
 ## 專案結構
 
