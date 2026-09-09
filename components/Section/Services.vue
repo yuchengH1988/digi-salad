@@ -43,8 +43,8 @@ const services = [
           <div class="grid size-[108px] place-items-center rounded-full bg-white">
             <img :src="service.icon" alt="" class="max-h-[77px] max-w-[82px] object-contain">
           </div>
-          <h3 class="text-h-4 mt-5 min-h-[39px] max-w-[280px]">{{ service.title }}</h3>
-          <p class="text-body-1 mt-4">{{ description }}</p>
+          <h3 class="text-h-4 mt-8 max-w-[280px] mb-7">{{ service.title }}</h3>
+          <p class="text-body-1">{{ description }}</p>
           <AtomCtaButton class="mt-auto" :label="service.action || 'View more'" href="#showcase" tone="outline" pill />
         </article>
       </div>
