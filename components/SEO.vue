@@ -25,12 +25,16 @@ const url = computed(() => props.url
 useSeoMeta({
   title,
   description,
+  author: 'digiSalad',
+  keywords: 'digital agency, web design, UX design, digital experience, Hong Kong',
   ogTitle: title,
   ogSiteName: title,
   ogUrl: url,
   ogDescription: description,
+  ogType: 'website',
   twitterTitle: title,
-  twitterDescription: description
+  twitterDescription: description,
+  twitterCard: 'summary'
 })
 
 useHead(() => ({
@@ -39,3 +43,7 @@ useHead(() => ({
   ]
 }))
 </script>
+
+<template>
+  <slot />
+</template>

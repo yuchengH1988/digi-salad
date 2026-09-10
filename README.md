@@ -42,8 +42,8 @@ yarn dev
 
 | 變數 | 用途 | 預設值 |
 | --- | --- | --- |
-| `APP_TITLE` | 網站標題 | `digiSalad Interview` |
-| `APP_DESC` | 網站描述 | digiSalad 專案描述 |
+| `APP_TITLE` | 網站標題 | `digiSalad \| Digital Experiences That Matter` |
+| `APP_DESC` | 網站描述 | digiSalad 數位體驗服務介紹 |
 | `APP_DEFAULT_LANG` | HTML 語言 | `zh-TW` |
 | `APP_URL` | 正式網站網址 | `http://localhost:3000` |
 | `APP_BASE_URL` | Nuxt Base URL | `/` |

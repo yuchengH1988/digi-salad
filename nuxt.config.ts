@@ -2,8 +2,8 @@ import path from 'node:path'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 const appEnv = {
-  title: process.env.APP_TITLE || 'digiSalad Interview',
-  desc: process.env.APP_DESC || 'digiSalad single-page interview project built with Nuxt, Tailwind CSS, and GSAP.',
+  title: process.env.APP_TITLE || 'digiSalad | Digital Experiences That Matter',
+  desc: process.env.APP_DESC || 'digiSalad creates thoughtful websites, digital products, and interactive experiences for ambitious brands.',
   lang: process.env.APP_DEFAULT_LANG || 'zh-TW',
   url: process.env.APP_URL || 'http://localhost:3000',
   baseURL: process.env.APP_BASE_URL || '/'
@@ -30,10 +30,6 @@ export default defineNuxtConfig({
           property: 'og:locale',
           content: appEnv.lang
         },
-        { property: 'og:image:width', content: '1200' },
-        { property: 'og:image:height', content: '630' },
-        { property: 'og:type', content: 'website' },
-        { name: 'twitter:card', content: 'summary_large_image' },
         {
           name: 'robots',
           content: `${
