@@ -8,7 +8,7 @@ import awardLogo from '~/assets/images/awards.webp'
     <div class="relative z-[2] grid min-h-[302px] grid-cols-1 items-center gap-[37px] lg:grid-cols-[416px_1fr]">
       <div>
         <AtomSectionTitle title="Awards" align="left" wave-class="w-[180px] lg:w-[200px]" />
-        <p class="text-body-1 mt-[25px]" data-fade="up">
+        <p class="text-body-1 mt-[25px]" >
           Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc.
         </p>
       </div>

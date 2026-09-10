@@ -6,13 +6,13 @@ const registerEffects = () => {
     name: 'aosFadeIn',
     effect: (targets, config = {}) => {
       const {
-        duration = 0.6,
+        duration = 1,
         delay = 0,
         markers = false,
         once = false,
         start = 'top 90%',
         verticalDistance = 32,
-        horizontalDistance = 24
+        horizontalDistance = 32
       } = config
 
       const getNumber = (value, fallback) => {
