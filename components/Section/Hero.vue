@@ -1,6 +1,4 @@
 <script setup>
-import heroDesktop from '~/assets/images/hero.webp'
-import heroMobile from '~/assets/images/hero-m.webp'
 import salad from '~/assets/images/salad.png'
 
 const { $gsap } = useNuxtApp()
@@ -121,7 +119,15 @@ onBeforeUnmount(() => {
 <template>
   <section id="top" ref="heroRef" class="relative h-[var(--windowVh,100vh)] text-white">
     <div class="absolute inset-0 overflow-hidden rounded-b-[30px] lg:rounded-b-[50px]">
-      <BasePicture :src="heroDesktop" :mobile-src="heroMobile" alt="Hong Kong city light trails at night" loading="eager" width="1920" height="1080" sizes="100vw" img-class="absolute inset-0 size-full object-cover" />
+      <BaseYouTubeVideo
+        video-id="8_4JRK4QkqU"
+        title="digiSalad hero background video"
+        background
+        :controls="false"
+        muted
+        loop
+        loading="eager"
+      />
       <div class="absolute inset-0 bg-[rgba(12,38,34,0.28)]"></div>
     </div>
 

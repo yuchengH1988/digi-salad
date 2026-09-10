@@ -10,6 +10,9 @@ import aboutMobile from '~/assets/images/about-video-thumbnail-m.webp'
       <BaseYouTubeVideo
         video-id="IeIRJ9jZ5Ro"
         title="Watch about digiSalad video"
+        controls
+        muted
+        :loop="false"
         class="mt-10 lg:mt-[71px]"
         data-fade="up"
       >
