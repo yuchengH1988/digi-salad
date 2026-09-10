@@ -43,6 +43,9 @@
   .text-body-3 {
     @apply font-default text-mb/body/3 lg:text-dt/body/3;
   }
+  .text-body-4 {
+    @apply font-default text-sm/body/4 sm:text-mb/body/1 lg:text-dt/body/1;
+  }
 
   .text-btn-1 {
     @apply font-default text-mb/btn/1 uppercase lg:text-dt/btn/1;

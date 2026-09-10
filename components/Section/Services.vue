@@ -39,13 +39,13 @@ const services = [
       </div>
 
       <div id="ingredients" class="mt-[85px] grid grid-cols-1 gap-x-5 gap-y-[60px] sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-[50px]">
-        <article v-for="service in services" :key="service.title" class="flex min-h-[409px] flex-col items-center text-center" data-fade="up">
+        <article v-for="service in services" :key="service.title" class="flex flex-col items-center text-center" data-fade="up">
           <div class="grid size-[108px] place-items-center rounded-full bg-white">
             <img :src="service.icon" alt="" class="max-h-[77px] max-w-[82px] object-contain">
           </div>
-          <h3 class="text-h-4 mt-8 max-w-[280px] mb-7">{{ service.title }}</h3>
-          <p class="text-body-1">{{ description }}</p>
-          <AtomCtaButton class="mt-auto" :label="service.action || 'View more'" href="#showcase" tone="outline" pill />
+          <h3 class="text-h-4 h-15 lg:h-[74px] flex justify-center items-center">{{ service.title }}</h3>
+          <p class="text-body-4 overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] lg:h-[150px] lg:[-webkit-line-clamp:5]">{{ description }}</p>
+          <AtomCtaButton class="mt-5" :label="service.action || 'View more'" href="#showcase" tone="outline" pill />
         </article>
       </div>
       <div class="mt-[79px] text-center">
