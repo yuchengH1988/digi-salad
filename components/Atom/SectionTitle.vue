@@ -7,7 +7,8 @@ const props = defineProps({
     default: 'center',
     validator: value => ['left', 'center'].includes(value)
   },
-  waveClass: { type: String, default: 'w-[168px] lg:w-[220px]' }
+  waveClass: { type: String, default: 'w-[168px] lg:w-[220px]' },
+  textClass: { type: String, default: '' }
 })
 
 const titleRef = ref(null)
@@ -69,7 +70,8 @@ onBeforeUnmount(() => {
       class="text-h-2 relative -ml-4"
       :class="[
         light ? 'text-white' : 'text-ink',
-        align === 'left' && 'pl-9'
+        align === 'left' && 'pl-9',
+        textClass
       ]"
       :aria-label="title"
     >
